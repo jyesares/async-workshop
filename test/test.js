@@ -115,9 +115,8 @@ describe('Promises refactor',  () => {
 
 const asyncawait = require('../async')
 
-xdescribe('Promises refactor',  () => {
+describe('Async/await refactor',  () => {
   it('(uploadFileContents) should return a promise', (done) => {
-    asyncawait.uploadFileContents.should.be.a('function');
     const promise = asyncawait.uploadFileContents()
     promise.should.be.a('promise');
     promise
@@ -131,9 +130,7 @@ xdescribe('Promises refactor',  () => {
   });
 
   it('(uploadFile) should return a promise', (done) => {
-    asyncawait.uploadFile.should.be.a('function');
     const promise = asyncawait.uploadFile()
-    if(!promise) done('Function returned undefined')
     promise.should.be.a('promise');
     promise
     .then(() => {
@@ -148,7 +145,6 @@ xdescribe('Promises refactor',  () => {
   it('should upload images folder correctly', (done) => {
     asyncawait.uploadFolder('./images')
     .then(numberOfFiles => {
-      expect(err).to.equal(null)
       numberOfFiles.should.eql(5)
       done();
     })
